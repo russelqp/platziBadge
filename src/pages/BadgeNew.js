@@ -1,60 +1,37 @@
 import React from 'react';
 
+import Navbar from '../components/Navbar';
 import './styles/BadgeNew.css';
 import header from '../images/badge-header.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
 
-class BadgeNew extends React.Component {
-  state = {
-    form: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      jobTitle: '',
-      twitter: '',
-    },
-  };
-
-  handleChange = e => {
-    this.setState({
-      form: {
-        ...this.state.form,
-        [e.target.name]: e.target.value,
-      },
-    });
-  };
-
-  render() {
-    return (
-      <React.Fragment>
+class BadgeNew extends React.Component{
+  render(){
+    return(
+      <div>
+        <Navbar />
         <div className="BadgeNew__hero">
-          <img className="img-fluid" src={header} alt="Logo" />
+          <img className="img-fluid" src={header} alt="logo"/>
         </div>
-
         <div className="container">
           <div className="row">
-            <div className="col-6">
-              <Badge
-                firstName={this.state.form.firstName}
-                lastName={this.state.form.lastName}
-                twitter={this.state.form.twitter}
-                jobTitle={this.state.form.jobTitle}
-                email={this.state.form.email}
-                avatarUrl="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon"
-              />
+            <div className="col">
+              <Badge 
+                firstName="Russel" 
+                lastName="Quiam" 
+                twitter="russelqp" 
+                jobTitle="Frontend Enginer" 
+                avatarUrl="http://0.gravatar.com/avatar/c5b6c22728257d1a7e22e4fca8be5c58"/>
             </div>
-
             <div className="col-6">
-              <BadgeForm
-                onChange={this.handleChange}
-                formValues={this.state.form}
-              />
+              <BadgeForm />
             </div>
           </div>
         </div>
-      </React.Fragment>
-    );
+
+      </div>
+    )
   }
 }
 
